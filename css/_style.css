@@ -1,0 +1,144 @@
+body{
+    background: #BFBFBF;
+}
+
+.sticker{
+    margin: 10px;
+    display: inline-block;
+}
+
+.sticker .content, .sticker .settings{
+    width: 200px;
+    min-height: 200px;
+    padding: 10px;
+    word-wrap: break-word;
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+.sticker .content{
+    background: linear-gradient(to bottom, #FFF7CA, #FFED96);
+}
+
+.sticker .settings{
+    background: linear-gradient(to bottom, #5D5E60, #515154);
+}
+
+.sticker .settings{
+    -webkit-transform: scaleX(0);
+}
+
+/*colour*/
+
+.sticker.color0{
+    background: linear-gradient(to bottom, #FFF7CA, #FFED96);
+}
+
+.sticker.color1{
+    background: linear-gradient(to bottom, #FFDFA7, #FFBE64);
+}
+
+.sticker.color2{
+    background: linear-gradient(to bottom, #EDFCC2, #CBF98C);
+}
+
+.sticker.color3{
+    background: linear-gradient(to bottom, #C7FBC1, #89F98C);
+}
+
+.sticker.color4{
+    background: linear-gradient(to bottom, #DAF6FE, #A5EAFD);
+}
+
+.sticker.color5{
+    background: linear-gradient(to bottom, #C6E2FC, #82BAFA);
+}
+
+.sticker.color6{
+    background: linear-gradient(to bottom, #F1E3FD, #DCBCFA);
+}
+
+.sticker.color7{
+    background: linear-gradient(to bottom, #FFDCF9, #FFB5F3);
+}
+
+.sticker.color8{
+    background: linear-gradient(to bottom, #FFFEFE, #F2F1F1);
+}
+
+.sticker.color9{
+    background: linear-gradient(to bottom, #ECECEC, #C8C8C8);
+}
+
+/*animation*/
+
+/*.sticker{
+    -webkit-transition-property: -webkit-transform;
+    -webkit-transition-duration: 0.5s;
+    -webkit-transition-delay: 0.5s;
+}*/
+
+.sticker.show-settings .content{
+    -webkit-animation:flip45 1s;
+    display: none;
+}
+
+.sticker.not-show-settings .content{
+    -webkit-transition-duration: 0.5s;
+    -webkit-animation:reflip45 1s;
+    display: block;
+}
+
+.sticker.show-settings .settings{
+    -webkit-transition-duration: 0.5s;
+    -webkit-animation:reflip45 1s;
+    display: block;
+}
+
+.sticker.not-show-settings .settings{
+    -webkit-animation:flip45 1s;
+    display: none;
+}
+
+.sticker.show-settings .content, .sticker.show-settings .settings{
+    -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes flip45
+{
+    from {
+        -webkit-transform: scaleX(1);
+    }
+    to {
+        -webkit-transform: scaleX(-1);
+    }
+}
+
+@-webkit-keyframes reflip45
+{
+    from {
+        -webkit-transform: scaleX(-1);
+    }
+    to {
+        -webkit-transform: scaleX(1);
+    }
+}
+/*@-webkit-keyframes flip90
+{
+    from {
+        -webkit-transform: scaleX(1);
+    }
+    to {
+        -webkit-transform: scaleX(0);
+    }
+}
+
+@-webkit-keyframes reflip90
+{
+    from {
+        -webkit-transform: scaleX(-1);
+    }
+    to {
+        -webkit-transform: scaleX(1);
+    }
+}*/
