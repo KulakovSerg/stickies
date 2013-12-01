@@ -1,7 +1,3 @@
-#main
-  color: blue
-  font-size: 0.3em
-
 html, body
   height: 100%
 
@@ -11,54 +7,54 @@ body
   margin: 0
 
 @mixin linear-gradient($angle, $from, $to)
-  background: -moz-linear-gradient($angle, $from, $to)
   background: -webkit-gradient($angle, $from, $to)
   background: -webkit-linear-gradient($angle, $from, $to)
+  background: -moz-linear-gradient($angle, $from, $to)
   background: -o-linear-gradient($angle, $from, $to)
   background: -ms-linear-gradient($angle, $from, $to)
   background: linear-gradient($angle, $from, $to)
 
 @mixin animation-fill-mode($value)
-  animation-fill-mode: $value
   -webkit-animation-fill-mode: $value
   -moz-animation-fill-mode: $value
   -o-animation-fill-mode: $value
   -ms-animation-fill-mode: $value
+  animation-fill-mode: $value
 
 @mixin animation-timing-function($value)
-  animation-timing-function: $value
   -webkit-animation-timing-function: $value
   -moz-animation-timing-function: $value
   -o-animation-timing-function: $value
   -ms-animation-timing-function: $value
+  animation-timing-function: $value
 
 @mixin animation-name($value...)
-  animation-name: $value
   -webkit-animation-name: $value
   -moz-animation-name: $value
   -o-animation-name: $value
   -ms-animation-name: $value
+  animation-name: $value
 
 @mixin animation-duration($value...)
-  animation-duration: $value
   -webkit-animation-duration: $value
   -moz-animation-duration: $value
   -o-animation-duration: $value
   -ms-animation-duration: $value
+  animation-duration: $value
 
 @mixin animation-delay($value...)
-  animation-delay: $value
   -webkit-animation-delay: $value
   -moz-animation-delay: $value
   -o-animation-delay: $value
   -ms-animation-delay: $value
+  animation-delay: $value
 
 @mixin transform($value)
-  transform: $value
   -webkit-transform: $value
   -moz-transform: $value
   -o-transform: $value
   -ms-transform: $value
+  transform: $value
 
 .sticker
   margin: 10px
@@ -114,6 +110,9 @@ body
 
   /*animation*/
 
+  $duration: 500ms
+  $duration_half: 250ms
+
   .content, .settings
     @include animation-fill-mode(forwards)
     @include animation-timing-function(linear)
@@ -121,26 +120,26 @@ body
   &.show-settings .content
     z-index: 1
     @include animation-name(flip, hideCont)
-    @include animation-duration(1s, 0.01ms)
-    @include animation-delay(0s, 0.5s)
+    @include animation-duration($duration, 0.01ms)
+    @include animation-delay(0s, $duration_half)
 
   &.show-settings .settings
     z-index: 2
     @include animation-name(hideCont, showCont, reflip)
-    @include animation-duration(0.01ms, 0.01ms, 1s)
-    @include animation-delay(0s, 0.5s, 0s)
+    @include animation-duration(0.01ms, 0.01ms, $duration)
+    @include animation-delay(0s, $duration_half, 0s)
 
   &.not-show-settings .settings
     z-index: 1
     @include animation-name(showCont, flip, hideCont)
-    @include animation-duration(0.01ms, 1s, 0.01ms)
-    @include animation-delay(0s, 0s, 0.5s)
+    @include animation-duration(0.01ms, $duration, 0.01ms)
+    @include animation-delay(0s, 0s, $duration_half)
 
   &.not-show-settings .content
     z-index: 2
     @include animation-name(hideCont, flip, showCont, reflip)
-    @include animation-duration(0.01ms, 0.01ms, 0.01ms, 1s)
-    @include animation-delay(0s, 0s, 0.5s, 0s)
+    @include animation-duration(0.01ms, 0.01ms, 0.01ms, $duration)
+    @include animation-delay(0s, 0s, $duration_half, 0s)
 
 @-webkit-keyframes flip
   from
