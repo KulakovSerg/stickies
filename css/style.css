@@ -137,7 +137,7 @@ body {
   background: -ms-linear-gradient(to bottom, #ececec, #c8c8c8);
   background: linear-gradient(to bottom, #ececec, #c8c8c8);
 }
-/* line 116, style.sass */
+/* line 115, style.sass */
 .sticker .content, .sticker .settings {
   -webkit-animation-fill-mode: forwards;
   -moz-animation-fill-mode: forwards;
@@ -150,7 +150,7 @@ body {
   -ms-animation-timing-function: linear;
   animation-timing-function: linear;
 }
-/* line 120, style.sass */
+/* line 119, style.sass */
 .sticker.show-settings .content {
   z-index: 1;
   -webkit-animation-name: flip, hideCont;
@@ -169,7 +169,7 @@ body {
   -ms-animation-delay: 0s, 250ms;
   animation-delay: 0s, 250ms;
 }
-/* line 126, style.sass */
+/* line 125, style.sass */
 .sticker.show-settings .settings {
   z-index: 2;
   -webkit-animation-name: hideCont, showCont, reflip;
@@ -188,7 +188,7 @@ body {
   -ms-animation-delay: 0s, 250ms, 0s;
   animation-delay: 0s, 250ms, 0s;
 }
-/* line 132, style.sass */
+/* line 131, style.sass */
 .sticker.not-show-settings .settings {
   z-index: 1;
   -webkit-animation-name: showCont, flip, hideCont;
@@ -207,7 +207,7 @@ body {
   -ms-animation-delay: 0s, 0s, 250ms;
   animation-delay: 0s, 0s, 250ms;
 }
-/* line 138, style.sass */
+/* line 137, style.sass */
 .sticker.not-show-settings .content {
   z-index: 2;
   -webkit-animation-name: hideCont, flip, showCont, reflip;
@@ -228,7 +228,7 @@ body {
 }
 
 @-webkit-keyframes flip {
-  /* line 145, style.sass */
+  /* line 144, style.sass */
   from {
     -webkit-transform: scaleX(1);
     -moz-transform: scaleX(1);
@@ -237,7 +237,7 @@ body {
     transform: scaleX(1);
   }
 
-  /* line 147, style.sass */
+  /* line 146, style.sass */
   to {
     -webkit-transform: scaleX(-1);
     -moz-transform: scaleX(-1);
@@ -248,7 +248,7 @@ body {
 }
 
 @-webkit-keyframes reflip {
-  /* line 151, style.sass */
+  /* line 150, style.sass */
   from {
     -webkit-transform: scaleX(-1);
     -moz-transform: scaleX(-1);
@@ -257,7 +257,7 @@ body {
     transform: scaleX(-1);
   }
 
-  /* line 153, style.sass */
+  /* line 152, style.sass */
   to {
     -webkit-transform: scaleX(1);
     -moz-transform: scaleX(1);
@@ -268,35 +268,35 @@ body {
 }
 
 @-webkit-keyframes hideCont {
-  /* line 157, style.sass */
+  /* line 156, style.sass */
   from {
     opacity: 0;
   }
 
-  /* line 159, style.sass */
+  /* line 158, style.sass */
   to {
     opacity: 0;
   }
 }
 
 @-webkit-keyframes showCont {
-  /* line 163, style.sass */
+  /* line 162, style.sass */
   from {
     opacity: 1;
   }
 
-  /* line 165, style.sass */
+  /* line 164, style.sass */
   to {
     opacity: 1;
   }
 }
 
-/* line 168, style.sass */
+/* line 167, style.sass */
 .wrapper {
   min-height: 100%;
 }
 
-/* line 171, style.sass */
+/* line 170, style.sass */
 .footer {
   height: 50px;
   margin-top: -50px;
@@ -304,3 +304,4 @@ body {
   position: fixed;
   width: 100%;
 }
+

@@ -111,7 +111,6 @@ body
   /*animation*/
 
   $duration: 500ms
-  $duration_half: 250ms
 
   .content, .settings
     @include animation-fill-mode(forwards)
@@ -121,25 +120,25 @@ body
     z-index: 1
     @include animation-name(flip, hideCont)
     @include animation-duration($duration, 0.01ms)
-    @include animation-delay(0s, $duration_half)
+    @include animation-delay(0s, $duration/2)
 
   &.show-settings .settings
     z-index: 2
     @include animation-name(hideCont, showCont, reflip)
     @include animation-duration(0.01ms, 0.01ms, $duration)
-    @include animation-delay(0s, $duration_half, 0s)
+    @include animation-delay(0s, $duration/2, 0s)
 
   &.not-show-settings .settings
     z-index: 1
     @include animation-name(showCont, flip, hideCont)
     @include animation-duration(0.01ms, $duration, 0.01ms)
-    @include animation-delay(0s, 0s, $duration_half)
+    @include animation-delay(0s, 0s, $duration/2)
 
   &.not-show-settings .content
     z-index: 2
     @include animation-name(hideCont, flip, showCont, reflip)
     @include animation-duration(0.01ms, 0.01ms, 0.01ms, $duration)
-    @include animation-delay(0s, 0s, $duration_half, 0s)
+    @include animation-delay(0s, 0s, $duration/2, 0s)
 
 @-webkit-keyframes flip
   from
