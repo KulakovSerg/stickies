@@ -13,10 +13,12 @@ body{
     padding: 10px;
     word-wrap: break-word;
     box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
 }
 
 
 .sticker .content{
+    z-index: 2;
     background: linear-gradient(to bottom, #FFF7CA, #FFED96);
 }
 
@@ -25,7 +27,8 @@ body{
 }
 
 .sticker .settings{
-    -webkit-transform: scaleX(0);
+    z-index: 1;
+    top: -220px;
 }
 
 /*colour*/
@@ -77,34 +80,40 @@ body{
     -webkit-transition-duration: 0.5s;
     -webkit-transition-delay: 0.5s;
 }*/
-
-.sticker.show-settings .content{
-    -webkit-animation:flip45 1s;
-    display: none;
+.sticker .content, .sticker .settings{
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: linear;
 }
 
-.sticker.not-show-settings .content{
-    -webkit-transition-duration: 0.5s;
-    -webkit-animation:reflip45 1s;
-    display: block;
+.sticker.show-settings .content{
+    z-index: 1;
+    -webkit-animation-name: flip, hideCont;
+    -webkit-animation-duration: 1s, 0.01ms;
+    -webkit-animation-delay: 0s, 0.5s;
 }
 
 .sticker.show-settings .settings{
-    -webkit-transition-duration: 0.5s;
-    -webkit-animation:reflip45 1s;
-    display: block;
+    z-index: 2;
+    -webkit-animation-name: hideCont, showCont, reflip;
+    -webkit-animation-duration: 0.01ms, 0.01ms, 1s;
+    -webkit-animation-delay: 0s, 0.5s, 0s;
 }
 
 .sticker.not-show-settings .settings{
-    -webkit-animation:flip45 1s;
-    display: none;
+    z-index: 1;
+    -webkit-animation-name: showCont, flip, hideCont;
+    -webkit-animation-duration: 0.01ms, 1s, 0.01ms;
+    -webkit-animation-delay: 0s, 0s, 0.5s;
 }
 
-.sticker.show-settings .content, .sticker.show-settings .settings{
-    -webkit-animation-fill-mode: forwards;
+.sticker.not-show-settings .content{
+    z-index: 2;
+    -webkit-animation-name: hideCont, flip, showCont, reflip;
+    -webkit-animation-duration: 0.01ms, 0.01ms, 0.01ms, 1s;
+    -webkit-animation-delay: 0s, 0s, 0.5s, 0s;
 }
 
-@-webkit-keyframes flip45
+@-webkit-keyframes flip
 {
     from {
         -webkit-transform: scaleX(1);
@@ -114,31 +123,32 @@ body{
     }
 }
 
-@-webkit-keyframes reflip45
+@-webkit-keyframes reflip
 {
     from {
         -webkit-transform: scaleX(-1);
     }
     to {
         -webkit-transform: scaleX(1);
-    }
-}
-/*@-webkit-keyframes flip90
-{
-    from {
-        -webkit-transform: scaleX(1);
-    }
-    to {
-        -webkit-transform: scaleX(0);
     }
 }
 
-@-webkit-keyframes reflip90
+@-webkit-keyframes hideCont
 {
-    from {
-        -webkit-transform: scaleX(-1);
+    from{
+        opacity: 0;
     }
-    to {
-        -webkit-transform: scaleX(1);
+    to{
+        opacity: 0;
     }
-}*/
+}
+
+@-webkit-keyframes showCont
+{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 1;
+    }
+}
