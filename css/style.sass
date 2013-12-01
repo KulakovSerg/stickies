@@ -1,3 +1,177 @@
 #main
   color: blue
   font-size: 0.3em
+
+html, body
+  height: 100%
+
+body
+  background: #BFBFBF
+  padding: 0
+  margin: 0
+
+@mixin linear-gradient($angle, $from, $to)
+  background: -moz-linear-gradient($angle, $from, $to)
+  background: -webkit-gradient($angle, $from, $to)
+  background: -webkit-linear-gradient($angle, $from, $to)
+  background: -o-linear-gradient($angle, $from, $to)
+  background: -ms-linear-gradient($angle, $from, $to)
+  background: linear-gradient($angle, $from, $to)
+
+@mixin animation-fill-mode($value)
+  animation-fill-mode: $value
+  -webkit-animation-fill-mode: $value
+  -moz-animation-fill-mode: $value
+  -o-animation-fill-mode: $value
+  -ms-animation-fill-mode: $value
+
+@mixin animation-timing-function($value)
+  animation-timing-function: $value
+  -webkit-animation-timing-function: $value
+  -moz-animation-timing-function: $value
+  -o-animation-timing-function: $value
+  -ms-animation-timing-function: $value
+
+@mixin animation-name($value...)
+  animation-name: $value
+  -webkit-animation-name: $value
+  -moz-animation-name: $value
+  -o-animation-name: $value
+  -ms-animation-name: $value
+
+@mixin animation-duration($value...)
+  animation-duration: $value
+  -webkit-animation-duration: $value
+  -moz-animation-duration: $value
+  -o-animation-duration: $value
+  -ms-animation-duration: $value
+
+@mixin animation-delay($value...)
+  animation-delay: $value
+  -webkit-animation-delay: $value
+  -moz-animation-delay: $value
+  -o-animation-delay: $value
+  -ms-animation-delay: $value
+
+@mixin transform($value)
+  transform: $value
+  -webkit-transform: $value
+  -moz-transform: $value
+  -o-transform: $value
+  -ms-transform: $value
+
+.sticker
+  margin: 10px
+  display: inline-block
+  .content, .settings
+    width: 200px
+    min-height: 200px
+    padding: 10px
+    word-wrap: break-word
+    box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.5)
+    position: relative
+
+  .content
+    z-index: 2
+    @include linear-gradient(to bottom, #FFF7CA, #FFED96)
+
+  .settings
+    @include linear-gradient(to bottom, #5D5E60, #515154)
+    z-index: 1
+    top: -220px
+
+  /*colour*/
+
+  &.color0
+    @include linear-gradient(to bottom, #FFF7CA, #FFED96)
+
+  &.color1
+    @include linear-gradient(to bottom, #FFDFA7, #FFBE64)
+
+  &.color2
+    @include linear-gradient(to bottom, #EDFCC2, #CBF98C)
+
+  &.color3
+    @include linear-gradient(to bottom, #C7FBC1, #89F98C)
+
+  &.color4
+    @include linear-gradient(to bottom, #DAF6FE, #A5EAFD)
+
+  &.color5
+    @include linear-gradient(to bottom, #C6E2FC, #82BAFA)
+
+  &.color6
+    @include linear-gradient(to bottom, #F1E3FD, #DCBCFA)
+
+  &.color7
+    @include linear-gradient(to bottom, #FFDCF9, #FFB5F3)
+
+  &.color8
+    @include linear-gradient(to bottom, #FFFEFE, #F2F1F1)
+
+  &.color9
+    @include linear-gradient(to bottom, #ECECEC, #C8C8C8)
+
+  /*animation*/
+
+  .content, .settings
+    @include animation-fill-mode(forwards)
+    @include animation-timing-function(linear)
+
+  &.show-settings .content
+    z-index: 1
+    @include animation-name(flip, hideCont)
+    @include animation-duration(1s, 0.01ms)
+    @include animation-delay(0s, 0.5s)
+
+  &.show-settings .settings
+    z-index: 2
+    @include animation-name(hideCont, showCont, reflip)
+    @include animation-duration(0.01ms, 0.01ms, 1s)
+    @include animation-delay(0s, 0.5s, 0s)
+
+  &.not-show-settings .settings
+    z-index: 1
+    @include animation-name(showCont, flip, hideCont)
+    @include animation-duration(0.01ms, 1s, 0.01ms)
+    @include animation-delay(0s, 0s, 0.5s)
+
+  &.not-show-settings .content
+    z-index: 2
+    @include animation-name(hideCont, flip, showCont, reflip)
+    @include animation-duration(0.01ms, 0.01ms, 0.01ms, 1s)
+    @include animation-delay(0s, 0s, 0.5s, 0s)
+
+@-webkit-keyframes flip
+  from
+    @include transform(scaleX(1))
+  to
+    @include transform(scaleX(-1))
+
+@-webkit-keyframes reflip
+  from
+    @include transform(scaleX(-1))
+  to
+    @include transform(scaleX(1))
+
+@-webkit-keyframes hideCont
+  from
+    opacity: 0
+  to
+    opacity: 0
+
+@-webkit-keyframes showCont
+  from
+    opacity: 1
+  to
+    opacity: 1
+
+.wrapper
+  min-height: 100%
+
+.footer
+  height: 50px
+  margin-top: -50px
+  background: red
+  position: fixed
+  width: 100%

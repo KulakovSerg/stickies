@@ -15,5 +15,8 @@ $(function(){
                return ((rotate ? !hasSettings : hasSettings) ? '' : 'not-') + settingsClass;
            }
        self.removeClass(getClassName()).addClass(getClassName(true));
+       hasSettings && setTimeout(function(){
+           self.removeClass('not-'+settingsClass);
+       },1050);
    });
 });
