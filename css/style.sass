@@ -1,3 +1,4 @@
+//clear
 html, body
   height: 100%
 
@@ -6,7 +7,9 @@ body
   padding: 0
   margin: 0
 
-@mixin linear-gradient($angle, $from, $to)
+//mixins
+
+=linear-gradient($angle, $from, $to)
   background: -webkit-gradient($angle, $from, $to)
   background: -webkit-linear-gradient($angle, $from, $to)
   background: -moz-linear-gradient($angle, $from, $to)
@@ -14,54 +17,138 @@ body
   background: -ms-linear-gradient($angle, $from, $to)
   background: linear-gradient($angle, $from, $to)
 
-@mixin animation-fill-mode($value)
+=animation-fill-mode($value)
   -webkit-animation-fill-mode: $value
   -moz-animation-fill-mode: $value
   -o-animation-fill-mode: $value
   -ms-animation-fill-mode: $value
   animation-fill-mode: $value
 
-@mixin animation-timing-function($value)
+=animation-timing-function($value)
   -webkit-animation-timing-function: $value
   -moz-animation-timing-function: $value
   -o-animation-timing-function: $value
   -ms-animation-timing-function: $value
   animation-timing-function: $value
 
-@mixin animation-name($value...)
+=animation-name($value...)
   -webkit-animation-name: $value
   -moz-animation-name: $value
   -o-animation-name: $value
   -ms-animation-name: $value
   animation-name: $value
 
-@mixin animation-duration($value...)
+=animation-duration($value...)
   -webkit-animation-duration: $value
   -moz-animation-duration: $value
   -o-animation-duration: $value
   -ms-animation-duration: $value
   animation-duration: $value
 
-@mixin animation-delay($value...)
+=animation-delay($value...)
   -webkit-animation-delay: $value
   -moz-animation-delay: $value
   -o-animation-delay: $value
   -ms-animation-delay: $value
   animation-delay: $value
 
-@mixin transform($value)
+=animation($value...)
+  -webkit-animation: $value
+  -moz-animation: $value
+  -o-animation: $value
+  -ms-animation: $value
+  animation: $value
+
+=transform($value)
   -webkit-transform: $value
   -moz-transform: $value
   -o-transform: $value
   -ms-transform: $value
   transform: $value
 
+=transition($value)
+  -webkit-transition: $value
+  -moz-transition: $value
+  -o-transition: $value
+  -ms-transition: $value
+  transition: $value
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=fromTo($property, $from, $to...)
+  from
+    #{$property}: $from
+  to
+    #{$property}: $to
+
+=keyframesFromTo($name,$property, $from, $to...)
+  +keyframes($name)
+    +fromTo($property, $from, $to)
+
+=appearance($value)
+  -moz-appearance: $value
+  -webkit-appearance: $value
+  appearance: $value
+
+$duration: 0.5s
+
+//background
+
+.wrapper
+  min-height: 100%
+
+.wrapper.showClose .close
+  opacity: 1
+  cursor: pointer
+  +transition(opacity $duration*2)
+  //+transition(cursor $duration*2)
+
+.footer
+  height: 50px
+  margin-top: -50px
+  position: fixed
+  padding-left: 20px
+  width: 100%
+  .button
+    color: #fff
+    display: inline-block
+    border: 2px solid
+    border-radius: 100px
+    font-weight: bold
+    font-size: 50px
+    line-height: 30px
+    width: 30px
+    background-color: #5F5F5F
+    text-align: center
+    cursor: pointer
+    span
+      position: relative
+    &.add span
+      left: 0.5px
+      top: -1.5px
+    &.remove span
+      top: -5px
+    &:last-child
+      margin-left: 10px
+
+//sticker
+
+$width: 200px
+
 .sticker
   margin: 10px
   display: inline-block
+
   .content, .settings
-    width: 200px
-    min-height: 200px
+    width: $width
     padding: 10px
     word-wrap: break-word
     box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.5)
@@ -69,107 +156,193 @@ body
 
   .content
     z-index: 2
-    @include linear-gradient(to bottom, #FFF7CA, #FFED96)
+    top: -($width+20)
+    padding-top: 5px
+    +linear-gradient(to bottom, #FFF7CA, #FFED96)
+    &:focus, &:active
+      border: none
+      outline: none
+    .text
+      min-height: $width+(-3)
+    &:hover .more
+      opacity: 1
+      +animation(fadein $duration)
+    .more
+      height: 20px
+      text-align: right
+      z-index: 3
+      opacity: 0
+      float: right
+      display: inline-block
+      top: -18px
+      font-style: italic
+      font-weight: bold
+      position: relative
+      width: 20px
+      text-align: center
+      border-radius: 50px
+      cursor: pointer
+      +transition(background $duration)
+      &:hover
+        background: rgba(128,128,128,0.7)
+
+  .close
+    margin: -20px 0 0 -20px
+    font-size: 22px
+    font-weight: bold
+    color: white
+    border: 2px solid
+    background: black
+    border-radius: 100px
+    width: 22px
+    height: 24px
+    padding-right: 2px
+    text-align: center
+    opacity: 0
 
   .settings
-    @include linear-gradient(to bottom, #5D5E60, #515154)
-    z-index: 1
-    top: -220px
+    +linear-gradient(to bottom, #5D5E60, #515154)
+    //opacity: 0
+    //z-index: 1
+    opacity: 1
+    z-index: 100
+    min-height: $width
+    width: $width+20
+    padding: 10px 0px
+    .ready
+      +linear-gradient(to bottom, #777778, #4D4E4F)
+      border: 1px solid #39393B
+      border-radius: 5px
+      color: white
+      font-weight: bold
+      padding: 5px 10px
+      display: inline-block
+      float: right
+      cursor: pointer
+    .color-picker
+      width: 100%
+      border-spacing: 10px
+      td
+        height: 26px
+        width: 28px
+        text-align: center
+        vertical-align: middle
+        color: #464548
+        border: 1px solid
+        font-size: 22px
+        &.active:after
+          content: "✔"
+    span
+      padding-left: 10px
+      color: #ffffff
+    .block
+      padding: 0 10px
+      select
+        display: inline-block
+        display: inline-block
+        border-radius: 5px
+        border: 1px solid #39393b
+        +appearance(none)
+        margin: 0px 0px 10px 0px
+        padding-right: 8px
+      label
+        position: relative
+        float: right
+        display: inline-block
+        &:after
+          content: '◀▶'
+          font-size: 7px
+          letter-spacing: 1px
+          color: #414141
+          +transform(rotate(90deg))
+          right: 1px
+          top: 6px
+          position: absolute
+          pointer-events: none
+        &:first-child
+          float: left
+          &:after
+            right: 0px
 
-  /*colour*/
+  //colour
 
-  &.color0
-    @include linear-gradient(to bottom, #FFF7CA, #FFED96)
+  & .color0
+    +linear-gradient(to bottom, #FFF7CA, #FFED96)
 
-  &.color1
-    @include linear-gradient(to bottom, #FFDFA7, #FFBE64)
+  & .color1
+    +linear-gradient(to bottom, #FFDFA7, #FFBE64)
 
-  &.color2
-    @include linear-gradient(to bottom, #EDFCC2, #CBF98C)
+  & .color2
+    +linear-gradient(to bottom, #EDFCC2, #CBF98C)
 
-  &.color3
-    @include linear-gradient(to bottom, #C7FBC1, #89F98C)
+  & .color3
+    +linear-gradient(to bottom, #C7FBC1, #89F98C)
 
-  &.color4
-    @include linear-gradient(to bottom, #DAF6FE, #A5EAFD)
+  & .color4
+    +linear-gradient(to bottom, #DAF6FE, #A5EAFD)
 
-  &.color5
-    @include linear-gradient(to bottom, #C6E2FC, #82BAFA)
+  & .color5
+    +linear-gradient(to bottom, #C6E2FC, #82BAFA)
 
-  &.color6
-    @include linear-gradient(to bottom, #F1E3FD, #DCBCFA)
+  & .color6
+    +linear-gradient(to bottom, #F1E3FD, #DCBCFA)
 
-  &.color7
-    @include linear-gradient(to bottom, #FFDCF9, #FFB5F3)
+  & .color7
+    +linear-gradient(to bottom, #FFDCF9, #FFB5F3)
 
-  &.color8
-    @include linear-gradient(to bottom, #FFFEFE, #F2F1F1)
+  & .color8
+    +linear-gradient(to bottom, #FFFEFE, #F2F1F1)
 
-  &.color9
-    @include linear-gradient(to bottom, #ECECEC, #C8C8C8)
+  & .color9
+    +linear-gradient(to bottom, #ECECEC, #C8C8C8)
 
-  /*animation*/
-
-  $duration: 500ms
+  //animation
 
   .content, .settings
-    @include animation-fill-mode(forwards)
-    @include animation-timing-function(linear)
+    +animation-fill-mode(forwards)
+    +animation-timing-function(linear)
+
+  //WARNING: not x-browser CSS below! Animation chains for Google-Chrome only!
 
   &.show-settings .content
     z-index: 1
-    @include animation-name(flip, hideCont)
-    @include animation-duration($duration, 0.01ms)
-    @include animation-delay(0s, $duration/2)
+    +animation-name(flip, hideCont)
+    +animation-duration($duration, 0.01ms)
+    +animation-delay(0s, $duration/2)
 
   &.show-settings .settings
     z-index: 2
-    @include animation-name(hideCont, showCont, reflip)
-    @include animation-duration(0.01ms, 0.01ms, $duration)
-    @include animation-delay(0s, $duration/2, 0s)
+    +animation-name(hideCont, showCont, reflip)
+    +animation-duration(0.01ms, 0.01ms, $duration)
+    +animation-delay(0s, $duration/2, 0s)
 
   &.not-show-settings .settings
     z-index: 1
-    @include animation-name(showCont, flip, hideCont)
-    @include animation-duration(0.01ms, $duration, 0.01ms)
-    @include animation-delay(0s, 0s, $duration/2)
+    +animation-name(showCont, flip, hideCont)
+    +animation-duration(0.01ms, $duration, 0.01ms)
+    +animation-delay(0s, 0s, $duration/2)
 
   &.not-show-settings .content
     z-index: 2
-    @include animation-name(hideCont, flip, showCont, reflip)
-    @include animation-duration(0.01ms, 0.01ms, 0.01ms, $duration)
-    @include animation-delay(0s, 0s, $duration/2, 0s)
+    +animation-name(hideCont, flip, showCont, reflip)
+    +animation-duration(0.01ms, 0.01ms, 0.01ms, $duration)
+    +animation-delay(0s, 0s, $duration/2, 0s)
 
-@-webkit-keyframes flip
+//animation keymaps
+
++keyframes(flip)
   from
-    @include transform(scaleX(1))
+    +transform(scaleX(1))
   to
-    @include transform(scaleX(-1))
-
-@-webkit-keyframes reflip
+    +transform(scaleX(-1))
++keyframes(reflip)
   from
-    @include transform(scaleX(-1))
+    +transform(scaleX(-1))
   to
-    @include transform(scaleX(1))
+    +transform(scaleX(1))
 
-@-webkit-keyframes hideCont
-  from
-    opacity: 0
-  to
-    opacity: 0
++keyframesFromTo(hideCont,opacity,0,0)
 
-@-webkit-keyframes showCont
-  from
-    opacity: 1
-  to
-    opacity: 1
++keyframesFromTo(showCont,opacity,1,1)
 
-.wrapper
-  min-height: 100%
-
-.footer
-  height: 50px
-  margin-top: -50px
-  background: red
-  position: fixed
-  width: 100%
++keyframesFromTo(fadein,opacity,0,1)
