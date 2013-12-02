@@ -1,0 +1,88 @@
+=linear-gradient($angle, $from, $to)
+  background: -webkit-gradient($angle, $from, $to)
+  background: -webkit-linear-gradient($angle, $from, $to)
+  background: -moz-linear-gradient($angle, $from, $to)
+  background: -o-linear-gradient($angle, $from, $to)
+  background: -ms-linear-gradient($angle, $from, $to)
+  background: linear-gradient($angle, $from, $to)
+
+=animation-fill-mode($value...)
+  -webkit-animation-fill-mode: $value
+  -moz-animation-fill-mode: $value
+  -o-animation-fill-mode: $value
+  -ms-animation-fill-mode: $value
+  animation-fill-mode: $value
+
+=animation-timing-function($value...)
+  -webkit-animation-timing-function: $value
+  -moz-animation-timing-function: $value
+  -o-animation-timing-function: $value
+  -ms-animation-timing-function: $value
+  animation-timing-function: $value
+
+=animation-name($value...)
+  -webkit-animation-name: $value
+  -moz-animation-name: $value
+  -o-animation-name: $value
+  -ms-animation-name: $value
+  animation-name: $value
+
+=animation-duration($value...)
+  -webkit-animation-duration: $value
+  -moz-animation-duration: $value
+  -o-animation-duration: $value
+  -ms-animation-duration: $value
+  animation-duration: $value
+
+=animation-delay($value...)
+  -webkit-animation-delay: $value
+  -moz-animation-delay: $value
+  -o-animation-delay: $value
+  -ms-animation-delay: $value
+  animation-delay: $value
+
+=animation($value...)
+  -webkit-animation: $value
+  -moz-animation: $value
+  -o-animation: $value
+  -ms-animation: $value
+  animation: $value
+
+=transform($value...)
+  -webkit-transform: $value
+  -moz-transform: $value
+  -o-transform: $value
+  -ms-transform: $value
+  transform: $value
+
+=transition($value...)
+  -webkit-transition: $value
+  -moz-transition: $value
+  -o-transition: $value
+  -ms-transition: $value
+  transition: $value
+
+=keyframes($name...)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=fromTo($property, $from, $to...)
+  from
+    #{$property}: $from
+  to
+    #{$property}: $to
+
+=keyframesFromTo($name,$property, $from, $to...)
+  +keyframes($name)
+    +fromTo($property, $from, $to)
+
+=appearance($value...)
+  -moz-appearance: $value
+  -webkit-appearance: $value
+  appearance: $value

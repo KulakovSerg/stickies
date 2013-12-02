@@ -18,22 +18,32 @@ $(function () {
             self.removeClass(getClassName()).addClass(getClassName(true));
             hasSettings && setTimeout(function () {
                 self.removeClass('not-' + settingsClass);
-            }, duration+10);
-        };
+            }, duration + 10);
+        },
+        toggleCloseButton = function () {
+            var self = $(this),
+                isActive = self.hasClass('active'),
+                current = self.hasClass('add') ? 'add' : 'remove';
+            $('.footer .button:not(.' + current + ')').removeClass('active');
+            $(this).toggleClass('active');
+            var target = $('.wrapper');
+            if(current == 'remove' && !isActive){
+                target.addClass(showCloseButtons)
+            }
+            else{
+                target.removeClass(showCloseButtons)
+            }
+        }
 
-    $(stickerClass+'.more').click(toggleSettings);
+    $(stickerClass + '.more').click(toggleSettings);
 
-    $(stickerClass+'.ready').click(toggleSettings);
+    $(stickerClass + '.ready').click(toggleSettings);
 
-    $(stickerClass+'.close').click(function(){
+    $(stickerClass + '.close').click(function () {
         var self = $(this);
         self.css('opacity') > 0 && self.closest(stickerClass).remove();
     });
 
-    $('.footer .add').click(function () {
-        $('.wrapper').removeClass(showCloseButtons);
-    });
-    $('.footer .remove').click(function () {
-        $('.wrapper').addClass(showCloseButtons);
-    });
+    $('.footer .add').click(toggleCloseButton);
+    $('.footer .remove').click(toggleCloseButton);
 });
