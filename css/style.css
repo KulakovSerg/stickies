@@ -150,7 +150,8 @@ body {
         vertical-align: middle;
         color: #464548;
         border: 1px solid;
-        font-size: 22px; }
+        font-size: 22px;
+        cursor: pointer; }
         .sticker .settings .color-picker td.active:after {
           content: "✔"; }
     .sticker .settings span {
