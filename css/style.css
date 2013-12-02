@@ -13,11 +13,11 @@ body {
 .wrapper.showClose .close {
   opacity: 1;
   cursor: pointer;
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
-  -ms-transition: opacity 1s;
-  transition: opacity 1s; }
+  -webkit-transition: opacity 1000ms;
+  -moz-transition: opacity 1000ms;
+  -o-transition: opacity 1000ms;
+  -ms-transition: opacity 1000ms;
+  transition: opacity 1000ms; }
 
 .footer {
   height: 50px;
@@ -52,14 +52,13 @@ body {
   display: inline-block; }
   .sticker .content, .sticker .settings {
     width: 200px;
-    padding: 10px;
+    padding: 5px 10px 10px 10px;
     word-wrap: break-word;
     box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.5);
     position: relative; }
   .sticker .content {
     z-index: 2;
     top: -220px;
-    padding-top: 5px;
     background: -webkit-gradient(to bottom, #fff7ca, #ffed96);
     background: -webkit-linear-gradient(to bottom, #fff7ca, #ffed96);
     background: -moz-linear-gradient(to bottom, #fff7ca, #ffed96);
@@ -70,14 +69,16 @@ body {
       border: none;
       outline: none; }
     .sticker .content .text {
-      min-height: 197px; }
+      min-height: 197px;
+      font-family: Helvetica;
+      font-size: medium; }
     .sticker .content:hover .more {
       opacity: 1;
-      -webkit-animation: fadein 0.5s;
-      -moz-animation: fadein 0.5s;
-      -o-animation: fadein 0.5s;
-      -ms-animation: fadein 0.5s;
-      animation: fadein 0.5s; }
+      -webkit-animation: fadein 500ms;
+      -moz-animation: fadein 500ms;
+      -o-animation: fadein 500ms;
+      -ms-animation: fadein 500ms;
+      animation: fadein 500ms; }
     .sticker .content .more {
       height: 20px;
       text-align: right;
@@ -93,15 +94,15 @@ body {
       text-align: center;
       border-radius: 50px;
       cursor: pointer;
-      -webkit-transition: background 0.5s;
-      -moz-transition: background 0.5s;
-      -o-transition: background 0.5s;
-      -ms-transition: background 0.5s;
-      transition: background 0.5s; }
+      -webkit-transition: background 500ms;
+      -moz-transition: background 500ms;
+      -o-transition: background 500ms;
+      -ms-transition: background 500ms;
+      transition: background 500ms; }
       .sticker .content .more:hover {
         background: rgba(128, 128, 128, 0.7); }
   .sticker .close {
-    margin: -20px 0 0 -20px;
+    margin: -20px 0 0 -24px;
     font-size: 22px;
     font-weight: bold;
     color: white;
@@ -125,6 +126,8 @@ body {
     min-height: 200px;
     width: 220px;
     padding: 10px 0px; }
+    .sticker .settings .close {
+      margin: -25px 0 0 -14px; }
     .sticker .settings .ready {
       background: -webkit-gradient(to bottom, #777778, #4d4e4f);
       background: -webkit-linear-gradient(to bottom, #777778, #4d4e4f);
@@ -281,16 +284,16 @@ body {
     -o-animation-name: flip, hideCont;
     -ms-animation-name: flip, hideCont;
     animation-name: flip, hideCont;
-    -webkit-animation-duration: 0.5s, 0.01ms;
-    -moz-animation-duration: 0.5s, 0.01ms;
-    -o-animation-duration: 0.5s, 0.01ms;
-    -ms-animation-duration: 0.5s, 0.01ms;
-    animation-duration: 0.5s, 0.01ms;
-    -webkit-animation-delay: 0s, 0.25s;
-    -moz-animation-delay: 0s, 0.25s;
-    -o-animation-delay: 0s, 0.25s;
-    -ms-animation-delay: 0s, 0.25s;
-    animation-delay: 0s, 0.25s; }
+    -webkit-animation-delay: 0s, 250ms;
+    -moz-animation-delay: 0s, 250ms;
+    -o-animation-delay: 0s, 250ms;
+    -ms-animation-delay: 0s, 250ms;
+    animation-delay: 0s, 250ms;
+    -webkit-animation-duration: 500ms, 0.01ms;
+    -moz-animation-duration: 500ms, 0.01ms;
+    -o-animation-duration: 500ms, 0.01ms;
+    -ms-animation-duration: 500ms, 0.01ms;
+    animation-duration: 500ms, 0.01ms; }
   .sticker.show-settings .settings {
     z-index: 2;
     -webkit-animation-name: hideCont, showCont, reflip;
@@ -298,16 +301,16 @@ body {
     -o-animation-name: hideCont, showCont, reflip;
     -ms-animation-name: hideCont, showCont, reflip;
     animation-name: hideCont, showCont, reflip;
-    -webkit-animation-duration: 0.01ms, 0.01ms, 0.5s;
-    -moz-animation-duration: 0.01ms, 0.01ms, 0.5s;
-    -o-animation-duration: 0.01ms, 0.01ms, 0.5s;
-    -ms-animation-duration: 0.01ms, 0.01ms, 0.5s;
-    animation-duration: 0.01ms, 0.01ms, 0.5s;
-    -webkit-animation-delay: 0s, 0.25s, 0s;
-    -moz-animation-delay: 0s, 0.25s, 0s;
-    -o-animation-delay: 0s, 0.25s, 0s;
-    -ms-animation-delay: 0s, 0.25s, 0s;
-    animation-delay: 0s, 0.25s, 0s; }
+    -webkit-animation-delay: 0s, 250ms, 0s;
+    -moz-animation-delay: 0s, 250ms, 0s;
+    -o-animation-delay: 0s, 250ms, 0s;
+    -ms-animation-delay: 0s, 250ms, 0s;
+    animation-delay: 0s, 250ms, 0s;
+    -webkit-animation-duration: 0.01ms, 0.01ms, 500ms;
+    -moz-animation-duration: 0.01ms, 0.01ms, 500ms;
+    -o-animation-duration: 0.01ms, 0.01ms, 500ms;
+    -ms-animation-duration: 0.01ms, 0.01ms, 500ms;
+    animation-duration: 0.01ms, 0.01ms, 500ms; }
   .sticker.not-show-settings .settings {
     z-index: 1;
     -webkit-animation-name: showCont, flip, hideCont;
@@ -315,16 +318,16 @@ body {
     -o-animation-name: showCont, flip, hideCont;
     -ms-animation-name: showCont, flip, hideCont;
     animation-name: showCont, flip, hideCont;
-    -webkit-animation-duration: 0.01ms, 0.5s, 0.01ms;
-    -moz-animation-duration: 0.01ms, 0.5s, 0.01ms;
-    -o-animation-duration: 0.01ms, 0.5s, 0.01ms;
-    -ms-animation-duration: 0.01ms, 0.5s, 0.01ms;
-    animation-duration: 0.01ms, 0.5s, 0.01ms;
-    -webkit-animation-delay: 0s, 0s, 0.25s;
-    -moz-animation-delay: 0s, 0s, 0.25s;
-    -o-animation-delay: 0s, 0s, 0.25s;
-    -ms-animation-delay: 0s, 0s, 0.25s;
-    animation-delay: 0s, 0s, 0.25s; }
+    -webkit-animation-delay: 0s, 0s, 250ms;
+    -moz-animation-delay: 0s, 0s, 250ms;
+    -o-animation-delay: 0s, 0s, 250ms;
+    -ms-animation-delay: 0s, 0s, 250ms;
+    animation-delay: 0s, 0s, 250ms;
+    -webkit-animation-duration: 0.01ms, 500ms, 0.01ms;
+    -moz-animation-duration: 0.01ms, 500ms, 0.01ms;
+    -o-animation-duration: 0.01ms, 500ms, 0.01ms;
+    -ms-animation-duration: 0.01ms, 500ms, 0.01ms;
+    animation-duration: 0.01ms, 500ms, 0.01ms; }
   .sticker.not-show-settings .content {
     z-index: 2;
     -webkit-animation-name: hideCont, flip, showCont, reflip;
@@ -332,16 +335,16 @@ body {
     -o-animation-name: hideCont, flip, showCont, reflip;
     -ms-animation-name: hideCont, flip, showCont, reflip;
     animation-name: hideCont, flip, showCont, reflip;
-    -webkit-animation-duration: 0.01ms, 0.01ms, 0.01ms, 0.5s;
-    -moz-animation-duration: 0.01ms, 0.01ms, 0.01ms, 0.5s;
-    -o-animation-duration: 0.01ms, 0.01ms, 0.01ms, 0.5s;
-    -ms-animation-duration: 0.01ms, 0.01ms, 0.01ms, 0.5s;
-    animation-duration: 0.01ms, 0.01ms, 0.01ms, 0.5s;
-    -webkit-animation-delay: 0s, 0s, 0.25s, 0s;
-    -moz-animation-delay: 0s, 0s, 0.25s, 0s;
-    -o-animation-delay: 0s, 0s, 0.25s, 0s;
-    -ms-animation-delay: 0s, 0s, 0.25s, 0s;
-    animation-delay: 0s, 0s, 0.25s, 0s; }
+    -webkit-animation-delay: 0s, 0s, 250ms, 0s;
+    -moz-animation-delay: 0s, 0s, 250ms, 0s;
+    -o-animation-delay: 0s, 0s, 250ms, 0s;
+    -ms-animation-delay: 0s, 0s, 250ms, 0s;
+    animation-delay: 0s, 0s, 250ms, 0s;
+    -webkit-animation-duration: 0.01ms, 0.01ms, 0.01ms, 500ms;
+    -moz-animation-duration: 0.01ms, 0.01ms, 0.01ms, 500ms;
+    -o-animation-duration: 0.01ms, 0.01ms, 0.01ms, 500ms;
+    -ms-animation-duration: 0.01ms, 0.01ms, 0.01ms, 500ms;
+    animation-duration: 0.01ms, 0.01ms, 0.01ms, 500ms; }
 
 @-webkit-keyframes flip {
   from {

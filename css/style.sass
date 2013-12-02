@@ -98,7 +98,7 @@ body
   -webkit-appearance: $value
   appearance: $value
 
-$duration: 0.5s
+$duration: 500ms
 
 //background
 
@@ -149,7 +149,7 @@ $width: 200px
 
   .content, .settings
     width: $width
-    padding: 10px
+    padding: 5px 10px 10px 10px
     word-wrap: break-word
     box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.5)
     position: relative
@@ -157,13 +157,14 @@ $width: 200px
   .content
     z-index: 2
     top: -($width+20)
-    padding-top: 5px
     +linear-gradient(to bottom, #FFF7CA, #FFED96)
     &:focus, &:active
       border: none
       outline: none
     .text
       min-height: $width+(-3)
+      font-family: Helvetica
+      font-size: medium
     &:hover .more
       opacity: 1
       +animation(fadein $duration)
@@ -187,7 +188,7 @@ $width: 200px
         background: rgba(128,128,128,0.7)
 
   .close
-    margin: -20px 0 0 -20px
+    margin: -20px 0 0 -24px
     font-size: 22px
     font-weight: bold
     color: white
@@ -207,6 +208,8 @@ $width: 200px
     min-height: $width
     width: $width+20
     padding: 10px 0px
+    .close
+      margin: -25px 0 0 -14px
     .ready
       +linear-gradient(to bottom, #777778, #4D4E4F)
       border: 1px solid #39393B
@@ -308,26 +311,26 @@ $width: 200px
   &.show-settings .content
     z-index: 1
     +animation-name(flip, hideCont)
-    +animation-duration($duration, 0.01ms)
     +animation-delay(0s, $duration/2)
+    +animation-duration($duration, 0.01ms)
 
   &.show-settings .settings
     z-index: 2
     +animation-name(hideCont, showCont, reflip)
-    +animation-duration(0.01ms, 0.01ms, $duration)
     +animation-delay(0s, $duration/2, 0s)
+    +animation-duration(0.01ms, 0.01ms, $duration)
 
   &.not-show-settings .settings
     z-index: 1
     +animation-name(showCont, flip, hideCont)
-    +animation-duration(0.01ms, $duration, 0.01ms)
     +animation-delay(0s, 0s, $duration/2)
+    +animation-duration(0.01ms, $duration, 0.01ms)
 
   &.not-show-settings .content
     z-index: 2
     +animation-name(hideCont, flip, showCont, reflip)
-    +animation-duration(0.01ms, 0.01ms, 0.01ms, $duration)
     +animation-delay(0s, 0s, $duration/2, 0s)
+    +animation-duration(0.01ms, 0.01ms, 0.01ms, $duration)
 
 //animation keymaps
 
