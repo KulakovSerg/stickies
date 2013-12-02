@@ -120,8 +120,8 @@ body {
     background: -o-linear-gradient(to bottom, #5d5e60, #515154);
     background: -ms-linear-gradient(to bottom, #5d5e60, #515154);
     background: linear-gradient(to bottom, #5d5e60, #515154);
-    opacity: 1;
-    z-index: 100;
+    opacity: 0;
+    z-index: 1;
     min-height: 200px;
     width: 220px;
     padding: 10px 0px; }
@@ -155,9 +155,11 @@ body {
           content: "✔"; }
     .sticker .settings span {
       padding-left: 10px;
-      color: white; }
+      color: white;
+      font-family: SANS-SERIF;
+      font-size: 12px; }
     .sticker .settings .block {
-      padding: 0 10px; }
+      padding: 5px 10px 0; }
       .sticker .settings .block select {
         display: inline-block;
         display: inline-block;
@@ -166,7 +168,7 @@ body {
         -moz-appearance: none;
         -webkit-appearance: none;
         appearance: none;
-        margin: 0px 0px 10px 0px;
+        margin: 0px 0px 6px 0px;
         padding-right: 8px; }
       .sticker .settings .block label {
         position: relative;
