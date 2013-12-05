@@ -8,9 +8,8 @@
 	<script type="text/javascript" src="js/lib/backbone.js"></script>
 	<script type="text/javascript" src="js/lib/jquery.js"></script>
 	<script type="text/javascript" src="app.js"></script>
-</head>
-<body>
-	<div class="wrapper">
+
+	<script type="text/template" id="sticker-template">
 		<div class="sticker">
 			<div class="settings">
 				<div class="close">×</div>
@@ -34,7 +33,7 @@
 				<span>Шрифт:</span>
 				<div class="block">
 					<label>
-						<select name="font-family">
+						<select class="font-family">
 							<option>Marker felt</option>
 							<option selected="selected">Helvetica</option>
 							<option>Lucida Grande</option>
@@ -46,7 +45,7 @@
 						</select>
 					</label>
 					<label>
-						<select name="font-size">
+						<select class="font-size">
 							<option selected="selected">Авто</option>
 							<option>10</option>
 							<option>11</option>
@@ -68,17 +67,22 @@
 				<div class="more">i</div>
 			</div>
 		</div>
-	</div>
-	<div class="footer">
-		<div class="inner">
+	</script>
+	<script type="text/template" id="app-template">
+		<div class="wrapper">
+		</div>
+		<div class="footer">
+			<div class="inner">
 			<span class="button add">
 				<span>+</span>
 			</span>
 			<span class="button remove">
 				<span>&#8211</span>
 			</span>
+			</div>
 		</div>
-	</div>
+	</script>
+</head>
+<body>
 </body>
 </html>
-<!--test-->
